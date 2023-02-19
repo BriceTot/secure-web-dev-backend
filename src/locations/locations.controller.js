@@ -67,4 +67,11 @@ router.delete(
   controllerDeleteOneLocation
 );
 
+router.get("/get/count", controllerCountLocations);
+
+async function controllerCountLocations(req, res) {
+  const locationsCount = await locationsService.countAll();
+  return res.status(200).send(locationsCount.toString());
+}
+
 module.exports = router;

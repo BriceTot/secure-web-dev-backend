@@ -52,4 +52,9 @@ async function deleteOne(id) {
   return location.remove();
 }
 
-module.exports = { createOne, findAll, findOne, updateOne, deleteOne };
+async function countAll() {
+  const locationCount = await Location.countDocuments({});
+  return locationCount;
+}
+
+module.exports = { createOne, findAll, findOne, updateOne, deleteOne, countAll };
